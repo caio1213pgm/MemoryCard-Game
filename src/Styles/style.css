@@ -1,0 +1,82 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1e86fc;
+    user-select: none;
+}   
+
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 2rem 4rem;
+    background: cornflowerblue;
+    box-shadow: 0px 0px 20px 4px;
+    h2{
+        font-size: 3em;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 0.5rem;
+    }
+}
+
+.btnReset{
+    padding: 1rem 1.5rem;
+    font-size: 1.7rem;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+.btnReset:focus{
+    background-color: #6d7175;
+    color: #ffffff;
+}
+
+.game{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 430px;
+    height: 430px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+.item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    font-size: 3em;
+    transform: rotateY(180deg);
+    transition: 0.5s;
+}
+.item::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #404040;
+    transition: 0.5s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden ;
+}
+
+.item.boxOpen{
+    transform: rotateY(0deg);
+}
+
+.boxOpen::after,
+.boxMatch::after{
+    transform: rotateY(180deg);
+}
